@@ -8,9 +8,11 @@ public class Email {
 	private String lastName;
 	private String password;
 	private String department;
-	private int mailBoxCapacity;
+	private int mailBoxCapacity = 500;
 	private String alternateEmail;
 	private int defaultPasswordLength=10;
+	private String email;
+	private String companySuffix = "company.com" ;
 	private Scanner in;
 	
 	//Constructor to receive the firstName and lastName
@@ -25,6 +27,9 @@ public class Email {
 		this.password = randomPassword(defaultPasswordLength);
 		//Call a method that returns a random password
 		System.out.println("Password Generated : " + password);
+		email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" +
+				department + "." + companySuffix;
+		System.out.println("Your email is : "+ email);
 	}
 	
 	//Ask for Department
@@ -60,6 +65,43 @@ public class Email {
 			password[i]=passwordSet.charAt(rand); //copy value at rand index in passwordSet to 'i' index in password
 		}
 		return new String (password);
+	}
+	
+	//set mailbox capacity
+	public void setMailBoxCapacity(int capacity){
+		this.mailBoxCapacity = capacity;
+	}
+	
+	//set alternate email
+	public void setAlternateEmail(String altEmail){
+		this.alternateEmail = altEmail;
+	}
+	
+	//change the password
+	public void changePassword(String password){
+		this.password = password;
+	}
+	
+	public int getMailBoxCapacity(){
+		return mailBoxCapacity;
+	}
+	
+	public String getAlternateEmail(){
+		return alternateEmail;
+	}
+	
+	public String getPassword(){
+		return password;
+	}
+	
+	public String showInfo(){
+		
+		String info = " DISPLAY NAME : " + firstName + "" + lastName +
+					   "\n COMPANY EMAIL : " + email +
+					   "\n MAILBOX CAPACITY : " + mailBoxCapacity + "mb";
+				
+	    return info;
+		
 	}
 	
 }
