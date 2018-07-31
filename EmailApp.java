@@ -11,7 +11,7 @@ public class EmailApp {
 
 	public static void main(String[] args) {
 		
-		Email emailUser1 = new Email("Rucha", "Niimbalkar");
+		Email emailUser1 = new Email("Rucha", "Nimbalkar");
 
 	}
 
